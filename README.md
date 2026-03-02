@@ -46,15 +46,15 @@ EatUpComercial/
 ├── COMPRAS/         # Gestión de inventario y egresos
 ├── MESAS/           # Control y disponibilidad de áreas físicas
 └── imagenesReadme/  # Recursos visuales del proyecto (Fotos y diagramas)
+```
 
 <p align="center">
   <img src="imagenesReadme/flujoGitHub.png" alt="FLUJO DE TRABAJO GITHUB" width="800">
 </p>
 
-# ==========================================
-# 🚀 FLUJO DE TRABAJO GITHUB - PROYECTO
-# ==========================================
+## 🚀 FLUJO DE TRABAJO GITHUB - PROYECTO
 
+```bash
 # 1️⃣ Clonar repositorio
 git clone <URL_DEL_REPOSITORIO>
 
@@ -135,3 +135,5 @@ git revert <hash_del_commit>
 # main  -> Producción (estable)
 # DEV   -> Desarrollo
 # nombreRamasIndividuales/* -> Ramas individuales
+
+```
