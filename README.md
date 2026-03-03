@@ -27,7 +27,7 @@ El sistema está diseñado para ser escalable e independiente. El módulo comerc
 | :--- | :--- | :---: |
 | **VENDEDORES** | *Andrea Avendaño Jurado* | <a href="https://github.com/Anxdrx"><img src="https://avatars.githubusercontent.com/u/168867627?v=4" width="80" height="80" style="border-radius: 50%;"></a> |
 | **CLIENTES** | *Nombre del Estudiante* | <a href="https://github.com/USUARIO_DE_GITHUB"><img src="imagenesReadme/clientes.png" width="80" height="80" style="border-radius: 50%;"></a> |
-| **PROVEEDORES** | *Nombre del Estudiante* | <a href="https://github.com/USUARIO_DE_GITHUB"><img src="imagenesReadme/proveedores.png" width="80" height="80" style="border-radius: 50%;"></a> |
+| **PROVEEDORES** | *Juan Camilo Bernal* | <a href="https://github.com/juancabernal"><img src="https://avatars.githubusercontent.com/u/170989469?v=4" width="80" height="80" style="border-radius: 50%;"></a> |
 | **VENTAS** | *Andres Felipe Velez Alcaraz* | <a href="https://github.com/andrias01"><img src="https://avatars.githubusercontent.com/u/103292498?s=400&u=175e635ba13d385e698d7b40eb9c2cebe64ea27e&v=4" width="80" height="80" style="border-radius: 50%;"></a> |
 | **COMPRAS** | *Nombre del Estudiante* | <a href="https://github.com/USUARIO_DE_GITHUB"><img src="imagenesReadme/compras.png" width="80" height="80" style="border-radius: 50%;"></a> |
 | **MESAS** | *Nombre del Estudiante* | <a href="https://github.com/USUARIO_DE_GITHUB"><img src="imagenesReadme/mesas.png" width="80" height="80" style="border-radius: 50%;"></a> |
@@ -137,3 +137,96 @@ git revert <hash_del_commit>
 # nombreRamasIndividuales/* -> Ramas individuales
 
 ```
+
+## 📁 📚 Documentación obligatoria por Microservicio
+
+Para mantener orden, claridad y facilitar la integración entre equipos, **cada microservicio debe incluir dentro de su propia carpeta un archivo de documentación**.
+
+Se recomienda crear dentro de cada carpeta de microservicio su propio README:
+
+- `README.md` (preferido ✅)  
+  ó  
+- `estructura.txt`
+
+---
+
+### 📌 ¿Qué debe contener esta documentación?
+
+Cada microservicio debe documentar obligatoriamente:
+
+---
+
+### 🗄 1️⃣ Esquema de Base de Datos
+
+Debe incluir:
+
+- Nombre de la tabla  
+- Campos  
+- Tipo de dato  
+- Clave primaria (PK)  
+- Claves foráneas (FK)  
+- Relaciones  
+
+Ejemplo:
+
+```txt
+Tabla: vendedores
+
+- id (UUID) PK
+- nombre (VARCHAR 100)
+- email (VARCHAR 100)
+- telefono (VARCHAR 20)
+- estado (BOOLEAN)
+```
+
+---
+
+### 🔌 2️⃣ Endpoints que expone el microservicio
+
+Debe documentarse cada endpoint con:
+
+- Método HTTP (GET, POST, PUT, DELETE)  
+- Ruta  
+- Descripción  
+- JSON de entrada (Request)  
+- JSON de salida (Response)  
+
+Ejemplo:
+
+```json
+POST /api/vendedores
+
+Request:
+{
+  "nombre": "Juan Perez",
+  "email": "juan@email.com",
+  "telefono": "3001234567"
+}
+
+Response:
+{
+  "id": "uuid-generado",
+  "nombre": "Juan Perez",
+  "email": "juan@email.com",
+  "telefono": "3001234567",
+  "estado": true
+}
+```
+
+---
+
+## 🎯 Objetivo
+
+- Evitar confusiones entre microservicios  
+- Facilitar integración entre equipos  
+- Permitir pruebas cruzadas  
+- Definir claramente los contratos de API  
+- Reducir errores en producción  
+
+---
+
+## 🚨 Regla del equipo
+
+Ningún microservicio debe subirse al repositorio sin su documentación actualizada.  
+
+La documentación hace parte del entregable obligatorio.
