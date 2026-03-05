@@ -26,6 +26,7 @@ El sistema está diseñado para ser escalable e independiente. El módulo comerc
 | Microservicio | Responsable | Foto (Click para ir al Perfil) |
 | :--- | :--- | :---: |
 | **VENDEDORES** | *Andrea Avendaño Jurado* | <a href="https://github.com/Anxdrx"><img src="https://avatars.githubusercontent.com/u/168867627?v=4" width="80" height="80" style="border-radius: 50%;"></a> |
+| **DESCUENTOS** | *Nombre del Estudiante* | <a href="https://github.com/juanjosenarvaez13"><img src="https://avatars.githubusercontent.com/u/142563412?v=4" width="80" height="80" style="border-radius: 50%;"></a> |
 | **CLIENTES** | *Nombre del Estudiante* | <a href="https://github.com/USUARIO_DE_GITHUB"><img src="imagenesReadme/clientes.png" width="80" height="80" style="border-radius: 50%;"></a> |
 | **PROVEEDORES** | *Juan Camilo Bernal* | <a href="https://github.com/juancabernal"><img src="https://avatars.githubusercontent.com/u/170989469?v=4" width="80" height="80" style="border-radius: 50%;"></a> |
 | **VENTAS** | *Andres Felipe Velez Alcaraz* | <a href="https://github.com/andrias01"><img src="https://avatars.githubusercontent.com/u/103292498?s=400&u=175e635ba13d385e698d7b40eb9c2cebe64ea27e&v=4" width="80" height="80" style="border-radius: 50%;"></a> |
@@ -40,6 +41,7 @@ Cada carpeta a nivel de raíz representa un microservicio independiente.
 ```bash
 EatUpComercial/
 ├── VENDEDORES/      # Gestión de personal de ventas
+├── DESCUENTOS/      # Gestión de Descuentos
 ├── CLIENTES/        # Registro y fidelización de usuarios
 ├── PROVEEDORES/     # Gestión de suministros y contactos
 ├── VENTAS/          # Procesamiento de pedidos y facturación
@@ -47,6 +49,9 @@ EatUpComercial/
 ├── MESAS/           # Control y disponibilidad de áreas físicas
 └── imagenesReadme/  # Recursos visuales del proyecto (Fotos y diagramas)
 ```
+<p align="center">
+  <img src="imagenesReadme/ramas.png" alt="TRAERME LA RAMA DEV DEL REPOSITORIO Y PARARME SOBRE ELLA" width="800">
+</p>
 
 <p align="center">
   <img src="imagenesReadme/flujoGitHub.png" alt="FLUJO DE TRABAJO GITHUB" width="800">
@@ -230,3 +235,262 @@ Response:
 Ningún microservicio debe subirse al repositorio sin su documentación actualizada.  
 
 La documentación hace parte del entregable obligatorio.
+
+## 📦 PROPUESTAS DE JSON PARA ALGUNOS SERVICIOS
+
+
+## 👨‍🍳 VENDEDORES
+
+```json
+{
+  "vendedores": [
+    {
+      "tipo_documento": "CC",
+      "identificacion": "1234567890",
+      "nombre": "Juan Pérez García",
+      "telefono": "3001234567",
+      "correo": "juan.perez@email.com",
+      "estado": "Activo"
+    },
+    {
+      "tipo_documento": "CC",
+      "identificacion": "9876543210",
+      "nombre": "María López Rodríguez",
+      "telefono": "3109876543",
+      "correo": "maria.lopez@email.com",
+      "estado": "Activo"
+    },
+    {
+      "tipo_documento": "CE",
+      "identificacion": "5555555555",
+      "nombre": "Carlos Martínez Sánchez",
+      "telefono": "3205555555",
+      "correo": "carlos.martinez@email.com",
+      "estado": "Inactivo"
+    }
+  ],
+  "metadatos": {
+    "total_vendedores": 5,
+    "activos": 4,
+    "inactivos": 1
+  }
+}
+
+```
+## 👤 CLIENTES
+
+```json
+{
+  "id": 1,
+  "primer_nombre": "Andrés",
+  "segundo_nombre": "",
+  "primer_apellido": "Pérez",
+  "segundo_apellido": "",
+  "activo": true,
+  "direccion": "Calle 123 #45-67",
+  "ciudad": "Bogotá",
+  "telefono": "3001234567",
+  "correo": "andres.perez@email.com",
+  "tipo_documento": "CC",
+  "numero_documento": "123456789",
+  "vendedor_asignado": "9876543210",
+  "total_compras_historico": 1250000,
+  "descuentos_activos": [
+    {
+      "categoria_id": "CAT-001",
+      "nombre": "Cumpleaños",
+      "porcentaje": 15,
+      "fecha_aplicacion": "2026-02-21"
+    }
+  ]
+}
+```
+## 🪑 MESAS
+
+```json
+{
+  "resumen_estado": {
+    "total_registradas": 24,
+    "ocupadas": 8,
+    "desocupadas": 10,
+    "reservadas": 6
+  },
+  "mesas": [
+    {
+      "numero_mesa": "Mesa 1",
+      "ubicacion": "Terraza",
+      "estado": "Desocupado",
+      "configuracion_adicional": ["Accesible"],
+      "detalles_sesion": null
+    },
+    {
+      "numero_mesa": "Mesa 12",
+      "ubicacion": "Planta Baja",
+      "estado": "Ocupada",
+      "configuracion_adicional": ["Area VIP", "Con vista"],
+      "detalles_sesion": {
+        "comensales": 4,
+        "hora_apertura": "12:30 PM",
+        "cliente_id": "1020304050",
+        "vendedor_id": "9876543210",
+        "tiempo_transcurrido_min": 45
+      }
+    },
+    {
+      "numero_mesa": "Mesa 2",
+      "ubicacion": "Interior",
+      "estado": "Reservado",
+      "configuracion_adicional": [],
+      "detalles_sesion": {
+        "comensales": 2,
+        "hora_reserva": "07:00 PM",
+        "cliente_nombre": "Carlos Ruiz"
+      }
+    }
+  ]
+}
+```
+## 🎁 DESCUENTOS
+```json
+{
+  "dashboard_resumen": {
+    "categorias_activas": 12,
+    "descuentos_asignados": 48,
+    "clientes_con_descuento": 156,
+    "porcentaje_descuento_promedio": "18%"
+  },
+  "categorias_descuento": [
+    {
+      "id": "CAT-001",
+      "nombre": "Cumpleaños",
+      "porcentaje": 15,
+      "descripcion": "Descuento especial para clientes en su día de cumpleaños",
+      "estado": "Activa"
+    },
+    {
+      "id": "CAT-002",
+      "nombre": "Venta Superior $1M",
+      "porcentaje": 20,
+      "descripcion": "Para clientes que hayan realizado compras superiores a $1,000,000",
+      "estado": "Activa"
+    },
+    {
+      "id": "CAT-003",
+      "nombre": "Día Festivo",
+      "porcentaje": 15,
+      "descripcion": "Descuento aplicable en días festivos y fechas especiales",
+      "estado": "Activa"
+    },
+    {
+      "id": "CAT-004",
+      "nombre": "Cliente Frecuente",
+      "porcentaje": 10,
+      "descripcion": "Para clientes con más de 10 visitas al mes",
+      "estado": "Activa"
+    }
+  ],
+  "asignaciones_recientes": [
+    {
+      "cliente_id": 1,
+      "cliente_nombre": "Andrés Pérez",
+      "descuento_aplicado": "Cumpleaños",
+      "porcentaje": 15,
+      "fecha_asignacion": "2026-02-21",
+      "total_compras_historico": 1250000
+    },
+    {
+      "cliente_id": 4,
+      "cliente_nombre": "Ana Martínez",
+      "descuentos_multiples": ["Venta Superior $1M", "Cliente Frecuente"],
+      "contacto": "ana.martinez@email.com",
+      "total_compras_historico": 2100000
+    },
+    {
+      "cliente_id": 6,
+      "cliente_nombre": "Carolina Díaz",
+      "estado_descuento": "Sin descuentos",
+      "total_compras_historico": 680000
+    }
+  ]
+}
+```
+## 🍲 RECETAS
+```json
+{
+  "recetario": [
+    {
+      "id": "REC-001",
+      "nombre": "Bandeja Paisa",
+      "categoria": "Receta",
+      "estado": "Activo",
+      "visible_en_menu": true,
+      "costeo": {
+        "costo_base": 6.17,
+        "margen_ganancia_porcentaje": 35,
+        "precio_venta": 9.48
+      },
+      "ingredientes_y_subrecetas": [
+        { "nombre": "Arroz Blanco", "cantidad": 0.2, "unidad_medida": "kg", "costo_unitario": 3.5, "subtotal": 0.70 },
+        { "nombre": "Frijoles Rojos", "cantidad": 0.15, "unidad_medida": "kg", "costo_unitario": 4.2, "subtotal": 0.63 },
+        { "nombre": "Carne Molida", "cantidad": 0.15, "unidad_medida": "kg", "costo_unitario": 12.8, "subtotal": 1.92 },
+        { "nombre": "Plátano Maduro", "cantidad": 0.1, "unidad_medida": "unidad", "costo_unitario": 2.1, "subtotal": 0.21 },
+        { "nombre": "Chicharrón", "cantidad": 0.08, "unidad_medida": "kg", "costo_unitario": 15.5, "subtotal": 1.24 },
+        { "nombre": "Aguacate", "cantidad": 0.05, "unidad_medida": "kg", "costo_unitario": 6.3, "subtotal": 0.32 },
+        { "nombre": "Huevos", "cantidad": 1, "unidad_medida": "unidad", "costo_unitario": 0.35, "subtotal": 0.35 },
+        { "nombre": "Arepa", "cantidad": 1, "unidad_medida": "unidad", "costo_unitario": 0.8, "subtotal": 0.80 }
+      ]
+    }
+  ]
+}
+```
+## 🧾 VENTAS (ORDEN)
+```json
+{
+  "orden_id": "ORD-2026-0045",
+  "vendedor": {
+    "id": "9876543210",
+    "nombre": "María López Rodríguez"
+  },
+  "mesa": {
+    "numero_actual": "Mesa 12",
+    "ubicacion": "Planta Baja",
+    "comensales": 4,
+    "hora_apertura": "2026-03-04T12:30:00Z",
+    "tiempo_activo_minutos": 45
+  },
+  "cliente": {
+    "es_consumidor_final": false,
+    "id": "1020304050",
+    "nombre": "Carlos Andrés Ruiz",
+    "descuento_aplicado": {
+      "nombre": "Cumpleaños",
+      "porcentaje": 15
+    }
+  },
+  "items_pedido": [
+    {
+      "item_instancia_id": "ITEM-001-A",
+      "id_receta": "REC-001",
+      "nombre": "Bandeja Paisa",
+      "estado_cocina": "En Preparación",
+      "cantidad": 2,
+      "comentario": "Sin cebolla",
+      "mesa_origen": "Mesa 12"
+    }
+  ],
+  "totales": {
+    "subtotal_bruto": 24.45,
+    "valor_descuento": 3.67,
+    "total_a_pagar": 20.78
+  }
+}
+```
+## 👨‍🍳 ACTUALIZACIÓN ESTADO COCINA
+```json
+{
+  "orden_id": "ORD-2026-0045",
+  "item_instancia_id": "ITEM-002-B",
+  "nuevo_estado": "Listo",
+  "hora_finalizacion": "2026-03-04T13:15:00Z"
+}
+```
