@@ -293,6 +293,7 @@ La documentación hace parte del entregable obligatorio.
   "correo": "andres.perez@email.com",
   "tipo_documento": "CC",
   "numero_documento": "123456789",
+  "regimen_tributario": "comun"
   "vendedor_asignado": "9876543210",
   "total_compras_historico": 1250000,
   "descuentos_activos": [
