@@ -26,12 +26,12 @@ El sistema está diseñado para ser escalable e independiente. El módulo comerc
 | Microservicio | Responsable | Foto (Click para ir al Perfil) |
 | :--- | :--- | :---: |
 | **VENDEDORES** | *Andrea Avendaño Jurado* | <a href="https://github.com/Anxdrx"><img src="https://avatars.githubusercontent.com/u/168867627?v=4" width="80" height="80" style="border-radius: 50%;"></a> |
-| **DESCUENTOS** | *Nombre del Estudiante* | <a href="https://github.com/juanjosenarvaez13"><img src="https://avatars.githubusercontent.com/u/142563412?v=4" width="80" height="80" style="border-radius: 50%;"></a> |
-| **CLIENTES** | *Nombre del Estudiante* | <a href="https://github.com/USUARIO_DE_GITHUB"><img src="imagenesReadme/clientes.png" width="80" height="80" style="border-radius: 50%;"></a> |
+| **DESCUENTOS** | *Juan Jose Narvaez Marin* | <a href="https://github.com/juanjosenarvaez13"><img src="https://avatars.githubusercontent.com/u/142563412?v=4" width="80" height="80" style="border-radius: 50%;"></a> |
+| **CLIENTES** | *María Salome Gonzalez Blandón* | <a href="https://github.com/msgonzale"><img src="https://avatars.githubusercontent.com/u/165715137?v=4" width="80" height="80" style="border-radius: 50%;"></a> |
 | **PROVEEDORES** | *Juan Camilo Bernal* | <a href="https://github.com/juancabernal"><img src="https://avatars.githubusercontent.com/u/170989469?v=4" width="80" height="80" style="border-radius: 50%;"></a> |
 | **VENTAS** | *Andres Felipe Velez Alcaraz* | <a href="https://github.com/andrias01"><img src="https://avatars.githubusercontent.com/u/103292498?s=400&u=175e635ba13d385e698d7b40eb9c2cebe64ea27e&v=4" width="80" height="80" style="border-radius: 50%;"></a> |
 | **COMPRAS** | *Nombre del Estudiante* | <a href="https://github.com/USUARIO_DE_GITHUB"><img src="imagenesReadme/compras.png" width="80" height="80" style="border-radius: 50%;"></a> |
-| **MESAS** | *Nombre del Estudiante* | <a href="https://github.com/USUARIO_DE_GITHUB"><img src="imagenesReadme/mesas.png" width="80" height="80" style="border-radius: 50%;"></a> |
+| **MESAS** | *Alexandra Puerta Bustamante* | <a href="https://github.com/USUARIO_DE_GITHUB"><img src="imagenesReadme/mesas.png" width="80" height="80" style="border-radius: 50%;"></a> |
 
 ---
 
