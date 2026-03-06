@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-03-05T00:22:22-0500",
+    date = "2026-03-05T20:12:12-0500",
     comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.45.0.v20260224-0835, environment: Java 21.0.10 (Eclipse Adoptium)"
 )
 @Component
@@ -30,14 +30,14 @@ public class VentaMapperImpl implements VentaMapper {
 
         VentaResponse.VentaResponseBuilder ventaResponse = VentaResponse.builder();
 
-        ventaResponse.ordenId( domain.getOrdenId() );
-        ventaResponse.vendedor( vendedorToVendedorDto( domain.getVendedor() ) );
-        ventaResponse.mesa( mesaToMesaDto( domain.getMesa() ) );
         ventaResponse.cliente( clienteToClienteDto( domain.getCliente() ) );
-        ventaResponse.itemsPedido( itemPedidoListToItemPedidoDtoList( domain.getItemsPedido() ) );
-        ventaResponse.totales( totalesToTotalesDto( domain.getTotales() ) );
         ventaResponse.estadoOrden( domain.getEstadoOrden() );
         ventaResponse.fechaCreacion( domain.getFechaCreacion() );
+        ventaResponse.itemsPedido( itemPedidoListToItemPedidoDtoList( domain.getItemsPedido() ) );
+        ventaResponse.mesa( mesaToMesaDto( domain.getMesa() ) );
+        ventaResponse.ordenId( domain.getOrdenId() );
+        ventaResponse.totales( totalesToTotalesDto( domain.getTotales() ) );
+        ventaResponse.vendedor( vendedorToVendedorDto( domain.getVendedor() ) );
 
         return ventaResponse.build();
     }
@@ -55,35 +55,6 @@ public class VentaMapperImpl implements VentaMapper {
         createVentaRequest.clienteId( domainClienteId( domain ) );
 
         return createVentaRequest.build();
-    }
-
-    protected VentaResponse.VendedorDto vendedorToVendedorDto(Vendedor vendedor) {
-        if ( vendedor == null ) {
-            return null;
-        }
-
-        VentaResponse.VendedorDto.VendedorDtoBuilder vendedorDto = VentaResponse.VendedorDto.builder();
-
-        vendedorDto.id( vendedor.getId() );
-        vendedorDto.nombre( vendedor.getNombre() );
-
-        return vendedorDto.build();
-    }
-
-    protected VentaResponse.MesaDto mesaToMesaDto(Mesa mesa) {
-        if ( mesa == null ) {
-            return null;
-        }
-
-        VentaResponse.MesaDto.MesaDtoBuilder mesaDto = VentaResponse.MesaDto.builder();
-
-        mesaDto.numeroActual( mesa.getNumeroActual() );
-        mesaDto.ubicacion( mesa.getUbicacion() );
-        mesaDto.comensales( mesa.getComensales() );
-        mesaDto.horaApertura( mesa.getHoraApertura() );
-        mesaDto.tiempoActivoMinutos( mesa.getTiempoActivoMinutos() );
-
-        return mesaDto.build();
     }
 
     protected VentaResponse.DescuentoDto descuentoToDescuentoDto(Descuento descuento) {
@@ -108,10 +79,10 @@ public class VentaMapperImpl implements VentaMapper {
 
         VentaResponse.ClienteDto.ClienteDtoBuilder clienteDto = VentaResponse.ClienteDto.builder();
 
+        clienteDto.descuentoAplicado( descuentoToDescuentoDto( cliente.getDescuentoAplicado() ) );
         clienteDto.esConsumidorFinal( cliente.getEsConsumidorFinal() );
         clienteDto.id( cliente.getId() );
         clienteDto.nombre( cliente.getNombre() );
-        clienteDto.descuentoAplicado( descuentoToDescuentoDto( cliente.getDescuentoAplicado() ) );
 
         return clienteDto.build();
     }
@@ -123,15 +94,15 @@ public class VentaMapperImpl implements VentaMapper {
 
         VentaResponse.ItemPedidoDto.ItemPedidoDtoBuilder itemPedidoDto = VentaResponse.ItemPedidoDto.builder();
 
-        itemPedidoDto.itemInstanciaId( itemPedido.getItemInstanciaId() );
-        itemPedidoDto.recetaId( itemPedido.getRecetaId() );
-        itemPedidoDto.nombre( itemPedido.getNombre() );
+        itemPedidoDto.cantidad( itemPedido.getCantidad() );
+        itemPedidoDto.comentario( itemPedido.getComentario() );
         if ( itemPedido.getEstadoCocina() != null ) {
             itemPedidoDto.estadoCocina( itemPedido.getEstadoCocina().name() );
         }
-        itemPedidoDto.cantidad( itemPedido.getCantidad() );
-        itemPedidoDto.comentario( itemPedido.getComentario() );
+        itemPedidoDto.itemInstanciaId( itemPedido.getItemInstanciaId() );
         itemPedidoDto.mesaOrigen( itemPedido.getMesaOrigen() );
+        itemPedidoDto.nombre( itemPedido.getNombre() );
+        itemPedidoDto.recetaId( itemPedido.getRecetaId() );
 
         return itemPedidoDto.build();
     }
@@ -149,6 +120,22 @@ public class VentaMapperImpl implements VentaMapper {
         return list1;
     }
 
+    protected VentaResponse.MesaDto mesaToMesaDto(Mesa mesa) {
+        if ( mesa == null ) {
+            return null;
+        }
+
+        VentaResponse.MesaDto.MesaDtoBuilder mesaDto = VentaResponse.MesaDto.builder();
+
+        mesaDto.comensales( mesa.getComensales() );
+        mesaDto.horaApertura( mesa.getHoraApertura() );
+        mesaDto.numeroActual( mesa.getNumeroActual() );
+        mesaDto.tiempoActivoMinutos( mesa.getTiempoActivoMinutos() );
+        mesaDto.ubicacion( mesa.getUbicacion() );
+
+        return mesaDto.build();
+    }
+
     protected VentaResponse.TotalesDto totalesToTotalesDto(Totales totales) {
         if ( totales == null ) {
             return null;
@@ -159,14 +146,27 @@ public class VentaMapperImpl implements VentaMapper {
         if ( totales.getSubtotalBruto() != null ) {
             totalesDto.subtotalBruto( totales.getSubtotalBruto().doubleValue() );
         }
-        if ( totales.getValorDescuento() != null ) {
-            totalesDto.valorDescuento( totales.getValorDescuento().doubleValue() );
-        }
         if ( totales.getTotalAPagar() != null ) {
             totalesDto.totalAPagar( totales.getTotalAPagar().doubleValue() );
         }
+        if ( totales.getValorDescuento() != null ) {
+            totalesDto.valorDescuento( totales.getValorDescuento().doubleValue() );
+        }
 
         return totalesDto.build();
+    }
+
+    protected VentaResponse.VendedorDto vendedorToVendedorDto(Vendedor vendedor) {
+        if ( vendedor == null ) {
+            return null;
+        }
+
+        VentaResponse.VendedorDto.VendedorDtoBuilder vendedorDto = VentaResponse.VendedorDto.builder();
+
+        vendedorDto.id( vendedor.getId() );
+        vendedorDto.nombre( vendedor.getNombre() );
+
+        return vendedorDto.build();
     }
 
     private String domainVendedorId(Venta venta) {
